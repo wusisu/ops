@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  redis_read_all_keys:
+    build: ./redis_read_all_keys
+    volumes:
+      - .:/app/output:rw
+
