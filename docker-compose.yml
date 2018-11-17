@@ -3,6 +3,13 @@ version: '3'
 services:
   redis_read_all_keys:
     build: ./redis_read_all_keys
+    environment:
+      - EACH_CHUNK_COUNT=${EACH_CHUNK_COUNT:-100}
+      - REPORT_EVERY=${REPORT_EVERY:-500}
+      - SLEEP_TIME=${SLEEP_TIME:-0.01}
+      - REDIS_HOST=${REDIS_HOST:-ali.wusisu.com}
+      - REDIS_PORT=${REDIS_PORT:-6379}
+      - OUTPUT_FILENAME=${OUTPUT_FILENAME:-./output/all_keys.txt}
     volumes:
       - .:/app/output:rw
 
